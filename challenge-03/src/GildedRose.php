@@ -17,7 +17,8 @@ class GildedRose
         $this->sellIn = $sellIn;
     }
 
-    public static function of($name, $quality, $sellIn) {
+    public static function of($name, $quality, $sellIn)
+    {
         return new static($name, $quality, $sellIn);
     }
 
@@ -27,6 +28,9 @@ class GildedRose
             if ($this->quality > 0) {
                 if ($this->name != 'Sulfuras, Hand of Ragnaros') {
                     $this->quality = $this->quality - 1;
+                    if ($this->quality > 0 && $this->name == 'Conjured Mana Cake') {
+                        $this->quality = $this->quality - 1;
+                    }
                 }
             }
         } else {
@@ -58,6 +62,9 @@ class GildedRose
                     if ($this->quality > 0) {
                         if ($this->name != 'Sulfuras, Hand of Ragnaros') {
                             $this->quality = $this->quality - 1;
+                            if ($this->quality > 0 && $this->name == 'Conjured Mana Cake') {
+                                $this->quality = $this->quality - 1;
+                            }
                         }
                     }
                 } else {
